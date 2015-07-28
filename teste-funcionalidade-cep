@@ -1,0 +1,38 @@
+Aé então tinha efetuado poucos testes com cucumber, somente testes caseiros e cosegui criar o teste da busca no site, porem estou com dificuldades para criar o segundo teste que no caso é da API dos correios, porem irei descrever os cenários que desenvolveria para esse teste
+
+
+
+2 - Os correios possuem uma API pública, que dado um determinado CEP, ela te retorna as informações do mesmo. O modelo da chamada é o seguinte:
+GET na url http://cep.correiocontrol.com.br/$CEP_A_SER_TESTADO.json - substitua $CEP_A_SER_TESTADO pelo cep que desejar validar. 
+Exemplo:
+GET - http://cep.correiocontrol.com.br/13040089.json
+Resposta:
+{
+    bairro: "Jardim Nova Europa",
+    logradouro: "Rua Manoel Sylvestre de Freitas Filho",
+    cep: "13040089",
+    uf: "SP",
+    localidade: "Campinas"
+}
+ A partir das informações acima, implemente cenários de teste que valide uma chamada com um cep válido e outra com cep inválido para essa API (implemente quantos cenários achar interessante, sempre validando o status code HTTP da resposta).
+ ps: É importante validar individualmente cada campo do JSON de resposta.
+
+
+2.1 - Validar CEP Valido
+
+GET - http://cep.correiocontrol.com.br/08745100.json
+Resposta:
+{
+    bairro: "Vila Nova Cintra",
+    logradouro: "Rua Shozo Sakai",
+    cep: "08745100",
+    uf: "SP",
+    localidade: "Mogi das Cruzes"
+}
+
+2.2 - Validar CEP Invalido
+GET - http://cep.correiocontrol.com.br/12345678.json
+Resposta:
+{
+	Menssage: "O endereço informado 112345678 não foi encontrado",
+}
